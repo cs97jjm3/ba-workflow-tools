@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "ba-workflow-tools": {
+      "command": "node",
+      "args": [
+        "C:\\Users\\james\\Documents\\BA Tools\\src\\index.js"
+      ]
+    }
+  }
+}

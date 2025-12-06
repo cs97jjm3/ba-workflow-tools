@@ -1,0 +1,145 @@
+{
+  "manifest_version": "0.2",
+  "name": "ba-workflow-tools",
+  "display_name": "BA Workflow Tools",
+  "version": "1.0.0",
+  "description": "Complete toolkit for Business Analysts: sprint planning, velocity tracking, MoSCoW prioritization, release dates, fiscal quarters, user story formatting, timezone tools, estimation converters, and text utilities. Solves real BA workflow problems.",
+  "author": {
+    "name": "James Murrell",
+    "email": "murrell.james@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cs97jjm3/ba-workflow-tools"
+  },
+  "homepage": "https://github.com/cs97jjm3/ba-workflow-tools#readme",
+  "keywords": [
+    "business-analysis",
+    "sprint-planning",
+    "agile",
+    "scrum",
+    "moscow-prioritization",
+    "velocity",
+    "backlog-management",
+    "release-planning",
+    "working-days",
+    "fiscal-quarters"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/index.js"
+      ],
+      "env": {
+        "FISCAL_YEAR_START_MONTH": "${user_config.fiscal_year_start_month}",
+        "DEFAULT_SPRINT_LENGTH": "${user_config.default_sprint_length}",
+        "POINT_TO_HOUR_RATIO": "${user_config.point_to_hour_ratio}",
+        "OVERHEAD_FACTOR": "${user_config.overhead_factor}"
+      }
+    }
+  },
+  "user_config": {
+    "fiscal_year_start_month": {
+      "type": "number",
+      "title": "Fiscal Year Start Month",
+      "description": "Month your fiscal year starts (1-12). UK=4 (April), US=10 (October), Calendar year=1 (January)",
+      "default": 4,
+      "required": false
+    },
+    "default_sprint_length": {
+      "type": "number",
+      "title": "Default Sprint Length (weeks)",
+      "description": "Your standard sprint length in weeks",
+      "default": 2,
+      "required": false
+    },
+    "point_to_hour_ratio": {
+      "type": "number",
+      "title": "Hours per Story Point",
+      "description": "How many hours equals one story point in your team",
+      "default": 4,
+      "required": false
+    },
+    "overhead_factor": {
+      "type": "number",
+      "title": "Overhead Factor",
+      "description": "Overhead as decimal (0.2 = 20% for meetings, ceremonies, etc.)",
+      "default": 0.2,
+      "required": false
+    }
+  },
+  "tools": [
+    {
+      "name": "calculate_working_days",
+      "description": "Calculate working days between two dates (excludes UK weekends and bank holidays)"
+    },
+    {
+      "name": "add_working_days",
+      "description": "Add working days to a date (accounts for weekends and holidays)"
+    },
+    {
+      "name": "subtract_working_days",
+      "description": "Subtract working days from a date (accounts for weekends and holidays)"
+    },
+    {
+      "name": "calculate_sprint_dates",
+      "description": "Generate multiple sprint dates with start/end dates and working days per sprint"
+    },
+    {
+      "name": "calculate_release_date",
+      "description": "Estimate release date based on remaining story points, team velocity, and sprint length"
+    },
+    {
+      "name": "calculate_velocity",
+      "description": "Calculate team velocity with adjustments for holidays, team size, and capacity changes"
+    },
+    {
+      "name": "calculate_fiscal_quarter",
+      "description": "Get fiscal quarter, fiscal year, and quarter dates (UK fiscal year default, configurable)"
+    },
+    {
+      "name": "format_user_story",
+      "description": "Format requirements into proper user story structure (Requirement, Placement, Behavior, Acceptance Criteria)"
+    },
+    {
+      "name": "calculate_moscow_priority",
+      "description": "MoSCoW priority breakdown: counts, story points, and percentages by Must/Should/Could/Won't"
+    },
+    {
+      "name": "plan_moscow_capacity",
+      "description": "Plan sprint capacity based on MoSCoW priorities - shows what fits in available capacity"
+    },
+    {
+      "name": "validate_moscow_dependencies",
+      "description": "Validate MoSCoW dependencies - finds issues like Must-haves depending on Could-haves or Won't items"
+    },
+    {
+      "name": "generate_requirement_ids",
+      "description": "Generate requirement ID sequences with consistent format (e.g., REQ-001, US-045, etc.)"
+    },
+    {
+      "name": "convert_points_to_hours",
+      "description": "Convert story points to hours with configurable ratio and overhead factor (default: 4h per point, 20% overhead)"
+    },
+    {
+      "name": "convert_estimation",
+      "description": "Convert between estimation systems: T-shirt sizes (XS/S/M/L/XL/XXL) ↔ Story Points ↔ Hours"
+    },
+    {
+      "name": "convert_timezone",
+      "description": "Convert time between timezones (supports GMT, EST, PST, AEST, CET, MYT, and more)"
+    },
+    {
+      "name": "find_meeting_time",
+      "description": "Find suitable meeting times that work across multiple timezones and working hours"
+    },
+    {
+      "name": "text_utilities",
+      "description": "Text operations: word count, char count, remove duplicates, sort, extract emails/URLs, case conversion, and more"
+    }
+  ],
+  "license": "MIT"
+}
