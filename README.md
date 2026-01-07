@@ -167,7 +167,11 @@ Learn how to:
 
 **£5 • Real code • Real examples • Real process**
 
-Available February 4th, 2025
+**Get the guide:** https://murrelljames.gumroad.com/l/pvfww
+
+**Repository:** https://github.com/cs97jjm3/ba-ai-tools-guide
+
+Built by a Business Analyst, for Business Analysts.
 
 ---
 
